@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusFlow AI | Smarter Exam Prep</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0f172a',
+            panel: '#111827',
+            primary: '#6366f1',
+            secondary: '#22c55e',
+            highlight: '#38bdf8',
+            textPrimary: '#f8fafc',
+            textSecondary: '#cbd5f5'
+          },
+          boxShadow: {
+            glow: '0 0 35px rgba(99,102,241,.35)',
+            sky: '0 0 30px rgba(56,189,248,.25)',
+            emerald: '0 0 28px rgba(34,197,94,.25)'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            pulseRing: {
+              '0%': { boxShadow: '0 0 0 0 rgba(99,102,241,.35)' },
+              '100%': { boxShadow: '0 0 0 16px rgba(99,102,241,0)' }
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(14px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            }
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+            pulseRing: 'pulseRing 2.4s ease-out infinite',
+            slideUp: 'slideUp .7s ease forwards'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 15% 10%, rgba(99,102,241,.22), transparent 33%),
+                  radial-gradient(circle at 80% 20%, rgba(56,189,248,.12), transparent 35%),
+                  radial-gradient(circle at 10% 85%, rgba(34,197,94,.08), transparent 35%);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="bg-navy text-textPrimary min-h-screen">
+  <header class="sticky top-0 z-20 border-b border-white/10 bg-navy/80 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a class="text-xl font-bold tracking-wide" href="index.html">FocusFlow <span class="text-highlight">AI</span></a>
+      <div class="hidden items-center gap-6 text-sm text-textSecondary md:flex">
+        <a class="transition hover:text-highlight" href="#features">Features</a>
+        <a class="transition hover:text-highlight" href="#demo">Demo</a>
+        <a class="transition hover:text-highlight" href="upload.html">Upload</a>
+        <a class="transition hover:text-highlight" href="notes.html">AI Notes</a>
+        <a class="transition hover:text-highlight" href="focus-room.html">Focus Room</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-7xl space-y-20 px-6 py-12 md:py-16">
+    <section class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="space-y-6 [animation-delay:.1s] animate-slideUp">
+        <p class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-sm text-textSecondary">Built for students, tutors, and exam teams</p>
+        <h1 class="text-5xl font-black leading-tight md:text-6xl">FocusFlow AI</h1>
+        <p class="text-xl font-medium text-highlight">Study Smarter. Stay Focused. Know Your Weak Spots.</p>
+        <p class="max-w-xl text-textSecondary">An AI-powered study assistant that turns messy study material into structured exam-ready knowledge, realistic practice questions, and focused study execution.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="upload.html" class="rounded-xl bg-primary px-6 py-3 font-semibold transition hover:-translate-y-0.5 hover:shadow-glow">Upload Study Material</a>
+          <a href="focus-room.html" class="rounded-xl border border-secondary/40 bg-secondary/10 px-6 py-3 font-semibold text-secondary transition hover:-translate-y-0.5 hover:shadow-emerald">Start Focus Room</a>
+        </div>
+        <div class="flex flex-wrap gap-4 text-xs text-textSecondary">
+          <span class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">98% note extraction quality</span>
+          <span class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">Live with 3,000+ students</span>
+        </div>
+      </div>
+
+      <div class="rounded-3xl border border-white/10 bg-panel/90 p-6 shadow-glow [animation-delay:.25s] animate-slideUp">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-4 animate-float">
+            <p class="text-xs text-textSecondary">AI Brain</p>
+            <div class="mt-3 h-20 rounded-xl bg-gradient-to-r from-primary/50 to-highlight/50"></div>
+            <p class="mt-3 text-xs text-textSecondary">Extracting 48 key concepts...</p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-4">
+            <p class="text-xs text-textSecondary">Books + Sources</p>
+            <div class="mt-3 flex h-20 items-end gap-2">
+              <span class="h-16 w-7 rounded bg-primary/70"></span><span class="h-12 w-7 rounded bg-secondary/70"></span><span class="h-14 w-7 rounded bg-highlight/70"></span><span class="h-10 w-7 rounded bg-indigo-300/60"></span>
+            </div>
+            <p class="mt-3 text-xs text-textSecondary">12 documents synchronized</p>
+          </article>
+          <article class="sm:col-span-2 rounded-2xl border border-white/10 bg-white/5 p-4">
+            <p class="text-xs text-textSecondary">Productivity Dashboard</p>
+            <div class="mt-3 space-y-3">
+              <div>
+                <div class="mb-1 flex justify-between text-xs"><span>Revision completeness</span><span>76%</span></div>
+                <div class="h-2 rounded-full bg-white/10"><div class="h-2 w-3/4 rounded-full bg-highlight"></div></div>
+              </div>
+              <div>
+                <div class="mb-1 flex justify-between text-xs"><span>Weak topics covered</span><span>62%</span></div>
+                <div class="h-2 rounded-full bg-white/10"><div class="h-2 w-2/3 rounded-full bg-primary"></div></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="space-y-6">
+      <h2 class="text-3xl font-bold">Core Features</h2>
+      <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <article class="rounded-2xl border border-white/10 bg-panel p-5 transition hover:-translate-y-1 hover:shadow-glow"><h3 class="font-semibold">Smart Notes Generator</h3><p class="mt-2 text-sm text-textSecondary">Upload PDFs or lecture notes and convert them into structured exam-ready notes with concepts, definitions, and likely exam asks.</p></article>
+        <article class="rounded-2xl border border-white/10 bg-panel p-5 transition hover:-translate-y-1 hover:shadow-glow"><h3 class="font-semibold">Assignment Blueprint Builder</h3><p class="mt-2 text-sm text-textSecondary">Paste any prompt to receive a solid introduction, section headings, and research direction map in seconds.</p></article>
+        <article class="rounded-2xl border border-white/10 bg-panel p-5 transition hover:-translate-y-1 hover:shadow-glow"><h3 class="font-semibold">Exam Prep Mode</h3><p class="mt-2 text-sm text-textSecondary">Generate probable exam questions, quick revision cards, and mini tests directly from your source materials.</p></article>
+        <article class="rounded-2xl border border-white/10 bg-panel p-5 transition hover:-translate-y-1 hover:shadow-glow"><h3 class="font-semibold">Focus Room</h3><p class="mt-2 text-sm text-textSecondary">Launch 25/50 minute deep-work sessions and keep your circle accountable in a shared timer room.</p></article>
+      </div>
+    </section>
+
+    <section id="demo" class="grid gap-6 lg:grid-cols-2">
+      <article class="rounded-2xl border border-white/10 bg-panel p-6 shadow-sky">
+        <div class="mb-4 flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Live Demo: PDF → Notes + Questions</h3>
+          <span class="rounded-full border border-secondary/30 bg-secondary/15 px-3 py-1 text-xs text-secondary">AI Active</span>
+        </div>
+        <div class="rounded-xl border border-dashed border-primary/60 bg-primary/10 p-4 text-sm text-textSecondary">
+          ✅ Uploaded: pharmacology-lecture-8.pdf
+        </div>
+        <div class="mt-4 grid gap-3">
+          <div class="rounded-xl bg-white/5 p-4"><p class="text-sm font-medium text-highlight">Generated Notes</p><p class="mt-1 text-sm text-textSecondary">Autonomic pathways, receptor binding patterns, and adverse effect matrix.</p></div>
+          <div class="rounded-xl bg-white/5 p-4"><p class="text-sm font-medium text-secondary">Predicted Exam Questions</p><p class="mt-1 text-sm text-textSecondary">Compare muscarinic vs nicotinic receptor responses with clinical use-cases.</p></div>
+        </div>
+      </article>
+
+      <article class="rounded-2xl border border-white/10 bg-panel p-6">
+        <h3 class="text-xl font-semibold">Weakness Detector</h3>
+        <p class="mt-2 text-sm text-textSecondary">Mark topics as clear/confusing to auto-prioritize revision.</p>
+        <div class="mt-4 space-y-3">
+          <div class="rounded-xl bg-white/5 p-4"><div class="flex items-center justify-between"><p class="font-medium">Organic Mechanisms</p><div class="space-x-2 text-xs"><span class="rounded bg-secondary/20 px-2 py-1 text-secondary">Clear</span><span class="rounded bg-primary/20 px-2 py-1 text-primary">Confusing</span></div></div></div>
+          <div class="rounded-xl border border-primary/25 bg-primary/10 p-4">
+            <p class="text-sm font-semibold text-highlight">Weak Topics Analytics</p>
+            <ul class="mt-2 space-y-1 text-sm text-textSecondary">
+              <li>• Electrochemistry equations — 4 flags</li>
+              <li>• Genetics cross problems — 3 flags</li>
+              <li>• Fourier transforms — 3 flags</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="rounded-2xl border border-white/10 bg-panel p-6">
+      <h3 class="text-xl font-semibold">Focus Room Snapshot</h3>
+      <div class="mt-5 flex flex-wrap items-center justify-between gap-6">
+        <div class="grid h-44 w-44 place-items-center rounded-full border-8 border-highlight/35 bg-navy shadow-glow animate-pulseRing">
+          <div class="text-center"><p class="text-xs text-textSecondary">Study Countdown</p><p class="text-4xl font-bold">24:58</p></div>
+        </div>
+        <div class="flex-1 space-y-3">
+          <p class="text-sm text-textSecondary">Current room: <span class="text-highlight">Exam Sprint Squad</span> • 6 students online</p>
+          <div class="flex gap-3"><button class="rounded-lg bg-secondary px-4 py-2 font-semibold text-navy">Start</button><button class="rounded-lg border border-white/20 px-4 py-2">Pause</button><button class="rounded-lg border border-white/20 px-4 py-2">Reset</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 py-8 text-center text-sm text-textSecondary">
+    <p class="font-semibold text-textPrimary">FocusFlow AI</p>
+    <p>Built for student productivity and smarter learning.</p>
+  </footer>
+</body>
+</html>
