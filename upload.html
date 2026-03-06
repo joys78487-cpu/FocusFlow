@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Study Material | FocusFlow AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { navy:'#0f172a', panel:'#111827', primary:'#6366f1', secondary:'#22c55e', highlight:'#38bdf8', textPrimary:'#f8fafc', textSecondary:'#cbd5f5' } } } }
+  </script>
+</head>
+<body class="min-h-screen bg-navy text-textPrimary">
+  <main class="mx-auto max-w-5xl px-6 py-12">
+    <a href="index.html" class="text-highlight hover:underline">← Back to Landing</a>
+    <section class="mt-6 rounded-2xl border border-white/10 bg-panel p-8 shadow-[0_0_35px_rgba(99,102,241,.24)]">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 class="text-4xl font-extrabold">Upload Study Material</h1>
+          <p class="mt-2 max-w-2xl text-textSecondary">Import lecture PDFs, class notes, and assignment handouts. FocusFlow AI will parse structure, extract key concepts, and build exam-focused outputs.</p>
+        </div>
+        <span class="rounded-full border border-highlight/30 bg-highlight/10 px-3 py-1 text-xs text-highlight">Encrypted Processing</span>
+      </div>
+
+      <div id="drop-zone" class="mt-8 rounded-2xl border-2 border-dashed border-primary/60 bg-primary/10 p-10 text-center transition duration-300 hover:border-highlight hover:bg-highlight/10">
+        <p class="text-lg font-semibold">Drag &amp; drop files here</p>
+        <p class="mt-1 text-sm text-textSecondary">Supported: PDF, DOCX, PPTX, TXT • Up to 50MB/file</p>
+        <button id="choose-btn" class="mt-5 rounded-xl bg-primary px-5 py-2 font-semibold transition hover:shadow-[0_0_25px_rgba(99,102,241,.3)]">Choose File</button>
+      </div>
+
+      <div class="mt-6 rounded-xl border border-white/10 bg-white/5 p-4">
+        <div class="mb-2 flex justify-between text-sm"><span class="text-textSecondary">Upload Progress</span><span id="progress-label">0%</span></div>
+        <div class="h-2 rounded-full bg-white/10"><div id="progress" class="h-2 w-0 rounded-full bg-gradient-to-r from-primary to-highlight transition-all duration-300"></div></div>
+      </div>
+
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <div class="rounded-xl bg-white/5 p-4"><p class="font-semibold">Processing Modes</p><ul class="mt-2 space-y-1 text-sm text-textSecondary"><li>• Smart Notes Extraction</li><li>• Exam Question Prediction</li><li>• Assignment Outline Builder</li></ul></div>
+        <div class="rounded-xl bg-white/5 p-4"><p class="font-semibold">Recent Upload</p><p class="mt-2 text-sm text-textSecondary">calculus-midterm-pack.pdf<br/>24 pages • Parsed in 18s</p></div>
+        <div class="rounded-xl bg-white/5 p-4"><p class="font-semibold">Queue Status</p><p class="mt-2 text-sm text-secondary">Ready • No pending jobs</p></div>
+      </div>
+
+      <a href="notes.html" class="mt-8 inline-block rounded-xl border border-secondary/40 bg-secondary/10 px-5 py-2 font-semibold text-secondary transition hover:shadow-[0_0_20px_rgba(34,197,94,.3)]">Continue to AI Results →</a>
+    </section>
+  </main>
+
+  <script>
+    const chooseBtn = document.getElementById('choose-btn');
+    const progress = document.getElementById('progress');
+    const progressLabel = document.getElementById('progress-label');
+    const dropZone = document.getElementById('drop-zone');
+
+    const simulateUpload = () => {
+      let value = 0;
+      const timer = setInterval(() => {
+        value += Math.ceil(Math.random() * 14);
+        if (value >= 100) {
+          value = 100;
+          clearInterval(timer);
+        }
+        progress.style.width = `${value}%`;
+        progressLabel.textContent = `${value}%`;
+      }, 180);
+    };
+
+    chooseBtn.addEventListener('click', simulateUpload);
+
+    ['dragenter', 'dragover'].forEach((eventName) => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone.classList.add('border-highlight', 'bg-highlight/10');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach((eventName) => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('border-highlight', 'bg-highlight/10');
+      });
+    });
+
+    dropZone.addEventListener('drop', simulateUpload);
+  </script>
+</body>
+</html>
